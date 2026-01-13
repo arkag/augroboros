@@ -14,7 +14,7 @@ Alex
 
 **A persistent memory and tooling framework for AI coding assistants.**
 
-Auggie gives your AI assistant long-term memory, consistent behavior, and reusable tools—all synced to GitHub so it follows you across sessions and machines.
+Augroboros gives your AI assistant long-term memory, consistent behavior, and reusable tools—all synced to GitHub so it follows you across sessions and machines.
 
 ## What Is This?
 
