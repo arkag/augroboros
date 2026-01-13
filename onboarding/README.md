@@ -23,7 +23,19 @@ Prompts to bootstrap a `~/.auggie/` directory for use with [Augment Code](https:
 
 ## Quick Start
 
-Choose your shell:
+Run one command to bootstrap your `~/.auggie/` directory:
+
+**Fish:**
+```fish
+auggie -i (curl -sL https://raw.githubusercontent.com/arkag/augroboros/main/onboarding/PROMPT-00-quickstart-fish.md | awk '/^```$/{if(f)exit;f=1;next}f')
+```
+
+**Bash:**
+```bash
+auggie -i "$(curl -sL https://raw.githubusercontent.com/arkag/augroboros/main/onboarding/PROMPT-00-quickstart-bash.md | awk '/^```$/{if(f)exit;f=1;next}f')"
+```
+
+Or manually copy the prompt from the quickstart file for your shell:
 
 | Shell | Quickstart File |
 |-------|-----------------|

@@ -18,7 +18,19 @@ When you use an AI coding assistant (like Augment), each conversation starts fre
 
 ### Option A: All-in-One Setup
 
-Choose your shell and copy the corresponding quickstart prompt into a new conversation:
+Run one command to bootstrap your `~/.auggie/` directory:
+
+**Fish:**
+```fish
+auggie -i (curl -sL https://raw.githubusercontent.com/arkag/augroboros/main/onboarding/PROMPT-00-quickstart-fish.md | awk '/^```$/{if(f)exit;f=1;next}f')
+```
+
+**Bash:**
+```bash
+auggie -i "$(curl -sL https://raw.githubusercontent.com/arkag/augroboros/main/onboarding/PROMPT-00-quickstart-bash.md | awk '/^```$/{if(f)exit;f=1;next}f')"
+```
+
+Or manually copy the prompt from the quickstart file for your shell:
 
 | Shell | Quickstart |
 |-------|------------|
