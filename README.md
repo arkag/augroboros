@@ -1,18 +1,30 @@
 # Auggie
 
+## BEGIN Human Text
+
+Hey there,
+
+I just wanted to hop in here to let anyone reading this know that this repository is 100% generated with AI. This is to make my job easier when performing DevOps/SysAdmin/Ops work that can be done with an AI. I wanted to make sure it was possible to automate more of the mundane boring work with `auggie`. This likely will work with other agents, but `auggie` is what is provided at work.
+
+Thanks for stopping by and feel free to submit PRs if you find something is severely broken.
+
+Alex
+
+## END Human Text
+
 **A persistent memory and tooling framework for AI coding assistants.**
 
 Auggie gives your AI assistant long-term memory, consistent behavior, and reusable tools—all synced to GitHub so it follows you across sessions and machines.
 
 ## What Is This?
 
-When you use an AI coding assistant (like Augment), each conversation starts fresh. Auggie solves this by creating a `~/.auggie/` directory that your AI reads at the start of every session, containing:
+When you use an AI coding assistant (like Augment), each conversation starts fresh. Augroboros (portmanteau of [auggie](https://docs.augmentcode.com/cli/overview) + ouroboros) solves this by creating a `~/.auggie/` directory that your AI reads at the start of every session, containing:
 
 - **Memories** — Facts, preferences, and context that persist across conversations
 - **Rules** — Behavioral guidelines (shell syntax, git workflows, safety protocols)
 - **Role Instructions** — Specialized prompts for different agent personas
 - **Tools** — Scripts and utilities the AI can invoke
-- **Credentials** — API keys and tokens (gitignored)
+- **Credentials** — API keys and tokens (gitignored and obfuscated)
 
 ## Quick Start
 
