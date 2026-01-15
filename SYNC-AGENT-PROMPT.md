@@ -34,7 +34,7 @@ The goal is to capture **how** things are done, not **what** specific data exist
 |--------------|----------|
 | Memory file naming convention: \`YYYY-MM-DD_<topic>.md\` | The actual memory filenames |
 | INDEX.md category structure | The specific entries in INDEX.md |
-| Role instruction file format | Company-specific roles like \`netbox-engineer.md\` |
+| Role instruction file format | Internal URLs/credentials within role files |
 | Tool utility patterns | Credentials embedded in tool scripts |
 | Error logging patterns | Actual error messages with internal URLs |
 
@@ -87,23 +87,50 @@ Key files to analyze for patterns:
 ### Task 3: Update Role Instructions Prompt (PROMPT-06)
 
 1. List all role instruction files in \`~/.auggie/role-instructions/\`
-2. Identify **generic** roles vs. company-specific roles
-3. Update PROMPT-06 to create:
-   - Generic roles applicable to any user
-   - Shell syntax reference (fish-shell-syntax.md)
-   - Tool restrictions guide (tool-restrictions.md)
-   - Error handling guide (error-handling.md)
+2. **Genericize ALL roles** — no roles should be excluded
+3. Update PROMPT-06 to create genericized versions of all roles
 
-**Generic roles to include:**
-- \`senior-engineer.md\` - General best practices
-- \`fish-shell-syntax.md\` - Shell reference
-- \`tool-restrictions.md\` - What tools to avoid
-- \`error-handling.md\` - Logging and debugging
+**Genericization process for each role:**
+- Remove internal hostnames, URLs, and IP addresses → use \`example.com\`, \`api.example.com\`
+- Remove company-specific project keys → use \`PROJECT_KEY\`, \`YOUR_PROJECT\`
+- Remove specific tool instance URLs (e.g., Jira, NetBox URLs) → use placeholders
+- Remove team names and org-specific terminology → use generic equivalents
+- Keep the structure, patterns, and best practices intact
+- Keep tool-specific knowledge (API patterns, CLI usage, workflow patterns)
 
-**Company-specific roles to EXCLUDE:**
-- \`netbox-engineer.md\`, \`k8s-engineer.md\` (unless genericized)
-- \`scrum-master.md\` (if tied to specific tools like Jira)
-- Any role with internal URLs or hostnames
+**Roles to genericize (include ALL):**
+
+| Role File | Genericization Notes |
+|-----------|---------------------|
+| \`senior-engineer.md\` | Keep best practices, script policies |
+| \`fish-shell-syntax.md\` | Shell reference — likely already generic |
+| \`tool-restrictions.md\` | Keep tool restriction patterns |
+| \`error-handling.md\` | Logging patterns — genericize any URLs |
+| \`netbox-engineer.md\` | Replace NetBox URLs, keep API patterns |
+| \`k8s-engineer.md\` | Replace cluster names/contexts, keep K8s patterns |
+| \`scrum-master.md\` | Replace Jira URLs/project keys, keep workflow patterns |
+| \`security-engineer.md\` | Keep security patterns and practices |
+| \`technical-writer.md\` | Keep documentation patterns |
+| \`ai-prompt-engineer.md\` | Keep prompt engineering patterns |
+
+**Example genericization:**
+
+Before (company-specific):
+\`\`\`markdown
+NETBOX_URL="https://netbox.internal.company.com"
+Default project: ED (Engineering Delivery)
+Jump host: ssh admin@jumpbox.corp.example.com
+\`\`\`
+
+After (genericized):
+\`\`\`markdown
+NETBOX_URL="https://netbox.example.com"  # Replace with your NetBox instance
+Default project: YOUR_PROJECT_KEY  # Replace with your project
+Jump host: ssh YOUR_USER@YOUR_JUMPHOST  # Replace with your jump host
+\`\`\`
+
+**Key principle:** Users should be able to search-and-replace placeholders with their own values.
+
 
 ### Task 4: Check for New Structural Patterns
 
